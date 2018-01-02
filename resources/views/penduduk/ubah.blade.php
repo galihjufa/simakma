@@ -39,12 +39,12 @@
                             </select>
                             <br>
                             <select name="kecamatan" class="form-control">
-                                <option value="">{{$penduduk->provinsi}}</option>
+                                <option value="">{{$penduduk->kecamatan}}</option>
                                 <option value=""></option>   
                             </select>
                             <br>
                             <select name="desa" class="form-control">
-                                <option value="">{{$penduduk->provinsi}}</option>
+                                <option value="">{{$penduduk->desa}}</option>
                                 <option value=""></option>   
                             </select>
                     </div>
