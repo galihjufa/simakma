@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use DB;
 use App\Quotation;
 use App\Penduduk;
+use App\Province;
 class PendudukController extends Controller
 {
 
