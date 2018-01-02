@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class District extends Model
 {
+		public $incrementing = false;
     public function regency()
     {
     	return $this->belongsTo('App\Regency');

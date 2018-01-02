@@ -11,7 +11,7 @@ class PendudukController extends Controller
 {
 
     public function viewData (){
-    	$penduduk = DB::table('penduduks')->get();
+    	$penduduk = Penduduk::all();
     	return view('penduduk.penduduk', ['penduduks'=>$penduduk]);
     }
 

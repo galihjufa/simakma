@@ -9,6 +9,8 @@ class Province extends Model
 
 	protected $table = 'provinces';
 
+	public $incrementing = false;
+
     public function regency(){
     	return $this->hashMany('App\Regency');
     }

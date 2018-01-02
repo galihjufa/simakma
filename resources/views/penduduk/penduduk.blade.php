@@ -38,10 +38,10 @@
                                             <td> {{ $pdk-> id }} </td>
                                             <td> {{ $pdk-> nik }} </td>
                                             <td> {{ $pdk-> nama }} </td>
-                                            <td> {{ $pdk->provinsi }} </td>
-                                            <td> {{ $pdk->kabupaten }} </td>
-                                            <td> {{ $pdk->kecamatan }} </td>
-                                            <td> {{ $pdk->desa }} </td>
+                                            <td> {{ $pdk->provinsi()->first()->name }} </td>
+                                            <td> {{ $pdk->kabupaten()->first()->name }} </td>
+                                            <td> {{ $pdk->kecamatan()->first()->name }} </td>
+                                            <td> {{ $pdk->desa()->first()->name }} </td>
                                             <td> {{ $pdk-> pekerjaan }} </td>
                                             <td> {{ $pdk-> pendapatan }} </td>
                                             <td> {{ $pdk-> jumlah_anggota_keluarga }} </td>

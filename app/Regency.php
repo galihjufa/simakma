@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Regency extends Model
 {
     protected $table = 'regencies';
+    	public $incrementing = false;
     public function province()
     {
     	return $this->belongsTo('App\Province');
