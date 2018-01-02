@@ -12,12 +12,10 @@
 */
 Auth::routes();
 
-Route::get('/', function () {
-    return view('sign');
-});
-Route::get('/home', function () {
-    return view('home.home');
-});
+Route::get('/', 'HomeController@sign');
+// Route::get('/home', function () {
+//     return view('home.home');
+// });
 
 Route::get('/home', 'HomeController@index');
 

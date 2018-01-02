@@ -25,6 +25,11 @@ class HomeController extends Controller
     {
         return view('home.home');
     }
+
+    public function sign()
+    {
+        return view('sign');
+    }
     
 
 }
