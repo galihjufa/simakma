@@ -60,9 +60,9 @@ font-size: 16px;"><?php echo date('d-M-Y');?> &nbsp; <a href="{{ route('logout')
                     <li  >
                         <a  href="{{ url('/tambah-data')}}"><i class="glyphicon glyphicon-edit"></i> Tambah Data </a>
                     </li>
-                     <li  >
+                    <!--  <li  >
                         <a  href="?page=tentang"><i class="glyphicon glyphicon-user"></i> Developer </a>
-                    </li>
+                    </li> -->
                     
                         </ul>
                       </li>  
