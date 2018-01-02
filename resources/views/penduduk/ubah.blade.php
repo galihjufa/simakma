@@ -27,22 +27,24 @@
                     <div class="form-group">
                         <label>Alamat</label>
                         <select name="provinsi" class="form-control">
-                                <option value="">--Pilih Provinsi--</option>
-                                <option value=""></option> 
+                                <option value="">{{$penduduk->provinsi}}</option>
+                                @foreach ($provinces as $province)
+                                    <option value="{{ $province->id }}"> {{ $province->name }}</option>   
+                                @endforeach
                             </select>
                             <br>
                             <select name="kabupaten" class="form-control">
-                                <option>--Pilih Kabupaten--</option>
+                                <option>{{$penduduk->kabupaten}}</option>
                                 <option value=""></option>
                             </select>
                             <br>
                             <select name="kecamatan" class="form-control">
-                                <option value="">--Pilih Kecamatan--</option>
+                                <option value="">{{$penduduk->provinsi}}</option>
                                 <option value=""></option>   
                             </select>
                             <br>
                             <select name="desa" class="form-control">
-                                <option value="">--Pilih Desa--</option>
+                                <option value="">{{$penduduk->provinsi}}</option>
                                 <option value=""></option>   
                             </select>
                     </div>
@@ -73,4 +75,89 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    // provinsi
+    $(document).ready(function() {
+        $('#provinsi').change(function(){
+        var provID = $(this).val();    
+        if(provID){
+
+            $.ajax({
+               type:"GET",
+               url:"{{url('/regency/get')}}/"+provID,
+               success:function(res){               
+                if(res){
+                    $('#kabupaten').empty();
+                    $('#kabupaten').append('<option>{{$penduduk->kabupaten}}</option>');
+                    res.forEach(function(key,value){
+                        $('#kabupaten').append('<option value="'+key.id+'">'+key.name+'</option>');
+                    });
+               
+                }else{
+                   $('#kabupaten').empty();
+                }
+               }
+            });
+        }else{
+            $('#provinsi').append('<option>{{$penduduk->provinsi}}</option>');;
+            $('#kabupaten').append('<option>{{$penduduk->kabupaten}}</option>');;
+        }      
+       });
+        // Kabupaten
+        $('#kabupaten').change(function(){
+        var kabID = $(this).val();    
+        if(kabID){
+
+            $.ajax({
+               type:"GET",
+               url:"{{url('/district/get')}}/"+kabID,
+               success:function(res){               
+                if(res){
+                    $('#kecamatan').empty();
+                    $('#kecamatan').append('<option>{{$penduduk->kecamatan}}</option>');
+                    res.forEach(function(key,value){
+                        $('#kecamatan').append('<option value="'+key.id+'">'+key.name+'</option>');
+                    });
+               
+                }else{
+                   $('#kecamatan').empty();
+                }
+               }
+            });
+        }else{
+            $('#kabupaten').append('<option>{{$penduduk->kabupaten}}</option>');;
+            $('#kecamatan').append('<option>{{$penduduk->kecamatan}}</option>');;
+        }      
+       });
+        // Kecamatan
+        $('#kecamatan').change(function(){
+        var kecID = $(this).val();    
+        if(kecID){
+
+            $.ajax({
+               type:"GET",
+               url:"{{url('/village/get')}}/"+kecID,
+               success:function(res){               
+                if(res){
+                    $('#desa').empty();
+                    $('#desa').append('<option>{{$penduduk->desa}}</option>');
+                    res.forEach(function(key,value){
+                        $('#desa').append('<option value="'+key.id+'">'+key.name+'</option>');
+                    });
+               
+                }else{
+                   $('#desa').empty();
+                }
+               }
+            });
+        }else{
+            $('#kecamatan').append('<option>{{$penduduk->kecamatan}}</option>');;
+            $('#desa').append('<option>{{$penduduk->desa}}</option>');;
+        }      
+       });
+
+    });
+</script>
+
 @endsection
