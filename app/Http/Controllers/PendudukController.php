@@ -19,6 +19,7 @@ class PendudukController extends Controller
     	$penduduk = DB::table('penduduks')->where('id',$id)->get();
     	return view('penduduk.ubah',[
     		'penduduks' => $penduduk,
+            'provinces'=>Province::all()
     	]);
     }
 
