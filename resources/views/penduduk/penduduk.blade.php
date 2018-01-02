@@ -44,8 +44,7 @@
                                             <td> {{ $pdk->desa()->first()->name }} </td>
                                             <td> {{ $pdk-> pekerjaan }} </td>
                                             <td> {{ $pdk-> pendapatan }} </td>
-                                            <td> {{ $pdk-> jumlah_anggota_keluarga }} </td>
-                                           
+                                            <td> {{ $pdk-> jumlah_anggota_keluarga }} </td>                                           
                                             <td>
                                                 <a class="btn btn-info" href="{{url('/penduduk/edit'.$pdk->id)}}" >Ubah</a>
                                                 
